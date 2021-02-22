@@ -1,25 +1,25 @@
 package com.oop21.w01.kodutoo1;
 
-import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+import java.util.Calendar;
 
 public class Birthday {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        GregorianCalendar birthDayDate = new GregorianCalendar(1999, GregorianCalendar.MARCH, 18);
-        GregorianCalendar todayDayDate = new GregorianCalendar(2021, GregorianCalendar.FEBRUARY, 15);
+        // Sünnikuupäeva sisestamine
+        System.out.print("Sisestage sünniaeg vormingus PP/KK/AAAA: ");
+        Scanner scanner = new Scanner(System.in);
+        String date = scanner.nextLine();
+        scanner.close();
 
-        int years = todayDayDate.get(GregorianCalendar.YEAR) - birthDayDate.get(GregorianCalendar.YEAR);
+        // Kuupäeva vormindamine õiges vormingus
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar birthDayDate = Calendar.getInstance();
 
-        int todayMonth = todayDayDate.get(GregorianCalendar.MONTH);
-        int birthMonth = birthDayDate.get(GregorianCalendar.MONTH);
+        birthDayDate.setTime(dateFormat.parse(date));
 
-        if (todayMonth < birthMonth) {
-            years--;
-        }
-        else if (todayMonth == birthMonth
-                && birthDayDate.get(GregorianCalendar.DAY_OF_MONTH) < birthDayDate.get(GregorianCalendar.DAY_OF_MONTH)) {
-            years--;
-        }
-        System.out.println("Vanus " + years + " aastat");
+        // Tulemuse väljastamine
+        System.out.println("Vanus: " + BirthdayCalc.calculateAge(birthDayDate));
     }
 }
