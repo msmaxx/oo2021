@@ -1,8 +1,6 @@
 package com.oop21.w04.kt01.a_tahed;
 
 
-import java.util.Arrays;
-
 public class Counter {
 
 
@@ -35,17 +33,18 @@ public class Counter {
                 " | Tähtede A aritmeetiline keskmine tekstis: " + averageCount + " |");
     }
 
+
     static void countAllWordsDetail(String str) {
         String[] wordArray = str.trim().split("\\s+");
         int wordCount = wordArray.length;
 
         int count = 0;
         for (char c : str.toCharArray()) {
-            if (c == 'a')
+            if (c == 'A')
                 count++;
         }
 
-        System.out.println("| Sõnade arv tekstis: " + wordCount + " | A-d sisaldavate sõnade arv: " + count + " ");
+        System.out.println("| Sõnade arv tekstis: " + wordCount + " | A-d sisaldavate sõnade arv: " + count);
     }
 
     static void detailCount(String str) {
@@ -74,7 +73,7 @@ public class Counter {
 
             System.out.println("--------------------------------------------------------------------");
             System.out.println("| Sõna: " + word + " " + "| Sisaldab " + countCapitalLetterA + " suurt tähte A | ja " + countLetterA + " väikest A"
-                    + " | Tähemärke kokku sõnas: " + countAllLetters(word) + " | A Tähtede aritmeetiline keskmine sõnas: " + averageCount);
+                    + " | Tähemärke kokku sõnas: " + countAllLetters(word) + " | A Tähtede aritmeetiline keskmine sõnas: " + averageCount + " ");
 
         }
     }

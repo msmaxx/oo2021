@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String str = "Tallink ldksdalala andis TallinnA SAdama kohtusse";
+        String str = "Tallink ldksdalala andis TAllinn SAdama";
 
         //String str = "Kolm endist TransferWise’i inseneri Aitavad nüüd teistel idufirmAdel lendu tõusta";
 
