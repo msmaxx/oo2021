@@ -1,5 +1,6 @@
 package com.oop21.w04.kt01.a_tahed;
 
+import java.io.*;
 import java.util.Scanner;
 
 //A-tähed tekstis
@@ -10,18 +11,21 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String str = "Tallink ldksdalala andis TAllinn SAdama";
 
-        //String str = "Kolm endist TransferWise’i inseneri Aitavad nüüd teistel idufirmAdel lendu tõusta";
-
-        //Scanner in = new Scanner(System.in);
-        // System.out.print("Sisestage analüüsimiseks soovitud tekst: ");
-        // String str = in.nextLine();
-
-        Counter.countALetters(str);
-        Counter.detailCount(str);
-        System.out.println("--------------------------------------------------------------------");
-        Counter.countAllWordsDetail(str);
+        try {
+            File textFile = new File("/Users/maksit/IdeaProjects/w04_kt01/src/com/oop21/w04/kt01/a_tahed/text.txt");
+            Scanner Reader = new Scanner(textFile);
+            while (Reader.hasNextLine()) {
+                String data = Reader.nextLine();
+                System.out.println("\n - " + data + " - \n");
+                Counter.detailCount(data);
+                Counter.countWords(data);
+            }
+            Reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Viga!");
+            e.printStackTrace();
+        }
     }
 }
 
